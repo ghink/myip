@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "我的 IP 地址",
+    "tagline": "显示你这次连接访问本页时所使用的地址。",
+    "answered": "已应答接口",
+    "updatedAt": "最近检测时间 {time}"
+  },
+  "endpoint": {
+    "auto": { "label": "自动", "blurb": "本次访问浏览器实际选用的协议。" },
+    "v4": { "label": "仅 IPv4", "blurb": "只能通过 IPv4 访问。" },
+    "v6": { "label": "仅 IPv6", "blurb": "只能通过 IPv6 访问。" }
+  },
+  "status": {
+    "pending": "检测中…",
+    "detected": "已获取",
+    "unavailable": "不可达",
+    "failed": "请求失败"
+  },
+  "reason": {
+    "unreachable": "你当前的连接无法访问该接口。",
+    "timeout": "该接口未在超时前应答。",
+    "empty": "该接口没有返回任何地址。",
+    "http": "该接口返回了错误。"
+  },
+  "action": {
+    "copy": "复制",
+    "copyDone": "已复制",
+    "copyBlocked": "浏览器阻止了剪贴板访问，请手动选中地址后复制。",
+    "refresh": "重新检测",
+    "language": "语言"
+  },
+  "api": {
+    "title": "接口用法",
+    "intro": "上面每张卡片各对应一个纯文本接口，可以直接在命令行里调用：",
+    "records": {
+      "auto": "A + AAAA 记录",
+      "v4": "仅 A 记录",
+      "v6": "仅 AAAA 记录"
+    },
+    "facts": {
+      "anyPath": "任意路径和查询参数都返回相同内容；GET、POST 均可，http:// 会跳转到 https://。",
+      "body": "响应是 text/plain，正文只有地址本身，结尾没有换行。",
+      "cors": "响应带 Access-Control-Allow-Origin: *，浏览器脚本可以直接请求。"
+    }
+  },
+  "hint": {
+    "unreachable": "某个接口不可达是正常现象而非故障：纯 IPv6 网络访问不了仅 IPv4 的接口，纯 IPv4 网络也访问不了仅 IPv6 的接口。"
+  }
+}

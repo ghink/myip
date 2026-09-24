@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "My IP address",
+    "tagline": "The addresses your connection reaches this page with.",
+    "answered": "Endpoints answered",
+    "updatedAt": "Last checked at {time}"
+  },
+  "endpoint": {
+    "auto": { "label": "Automatic", "blurb": "Whichever protocol your browser picked for this visit." },
+    "v4": { "label": "IPv4 only", "blurb": "Reachable over IPv4 only." },
+    "v6": { "label": "IPv6 only", "blurb": "Reachable over IPv6 only." }
+  },
+  "status": {
+    "pending": "Checking…",
+    "detected": "Detected",
+    "unavailable": "Not reachable",
+    "failed": "Request failed"
+  },
+  "reason": {
+    "unreachable": "Your connection cannot reach this endpoint.",
+    "timeout": "This endpoint did not answer in time.",
+    "empty": "This endpoint returned no address.",
+    "http": "This endpoint answered with an error."
+  },
+  "action": {
+    "copy": "Copy",
+    "copyDone": "Copied",
+    "copyBlocked": "Your browser blocked clipboard access. Select the address and copy it manually.",
+    "refresh": "Check again",
+    "language": "Language"
+  },
+  "api": {
+    "title": "API usage",
+    "intro": "Each card above is backed by one plain-text endpoint. Call them straight from a shell:",
+    "records": {
+      "auto": "A + AAAA records",
+      "v4": "A record only",
+      "v6": "AAAA record only"
+    },
+    "facts": {
+      "anyPath": "Any path and any query string return the same body; GET and POST both work, and http:// redirects to https://.",
+      "body": "The response is text/plain and holds nothing but the address, with no trailing newline.",
+      "cors": "Responses send Access-Control-Allow-Origin: *, so browser code can call them directly."
+    }
+  },
+  "hint": {
+    "unreachable": "An unreachable endpoint is expected, not an error: an IPv6-only network cannot reach the IPv4 endpoint, and an IPv4-only network cannot reach the IPv6 one."
+  }
+}

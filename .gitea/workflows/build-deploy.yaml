@@ -1,0 +1,76 @@
+name: Build, Test and Deploy
+
+on:
+  push:
+    branches: [main, production]
+
+env:
+  PNPM_VERSION: "10.9.0"
+  PURGE_VERSION: "v1.0.0"
+  NPM_CONFIG_REGISTRY: "http://mirrors.98e-1.net/npm"
+  COREPACK_NPM_REGISTRY: "http://mirrors.98e-1.net/npm"
+
+jobs:
+  build-and-deploy:
+    runs-on: node-24-alpine
+    defaults:
+      run:
+        shell: sh
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@${PNPM_VERSION} --activate
+          pnpm --version
+
+      - name: Set npm and pnpm registry mirrors
+        run: |
+          npm config set registry http://mirrors.98e-1.net/npm
+          pnpm config set registry http://mirrors.98e-1.net/npm
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Generate nuxt
+        run: |
+          pnpm build
+
+      - name: Deploy to EdgeOne Maker
+        if: github.ref == 'refs/heads/production'
+        env:
+          EDGEONE_MAKER_API_TOKEN: ${{ secrets.EDGEONE_MAKER_API_TOKEN }}
+          EDGEONE_MAKER_PROJECT_ID: ${{ vars.EDGEONE_MAKER_PROJECT_ID }}
+        run: |
+          set -eu
+
+          : "${EDGEONE_MAKER_API_TOKEN:?EDGEONE_MAKER_API_TOKEN is required}"
+          : "${EDGEONE_MAKER_PROJECT_ID:?EDGEONE_MAKER_PROJECT_ID is required}"
+
+          pnpm dlx edgeone@latest makers deploy .output/public \
+            --n "$EDGEONE_MAKER_PROJECT_ID" \
+            --t "$EDGEONE_MAKER_API_TOKEN"
+
+      - name: Deploy to Cloudflare Pages
+        if: github.ref == 'refs/heads/production'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_PAGES_PROJECT_NAME: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
+        run: |
+          set -eu
+
+          : "${CLOUDFLARE_API_TOKEN:?CLOUDFLARE_API_TOKEN is required}"
+          : "${CLOUDFLARE_ACCOUNT_ID:?CLOUDFLARE_ACCOUNT_ID is required}"
+          : "${CLOUDFLARE_PAGES_PROJECT_NAME:?CLOUDFLARE_PAGES_PROJECT_NAME is required}"
+
+          pnpm dlx wrangler@latest pages deploy .output/public \
+            --project-name "$CLOUDFLARE_PAGES_PROJECT_NAME" \
+            --branch main \
+            --commit-dirty=true

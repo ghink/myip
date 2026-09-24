@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "Mia IP-adreso",
+    "tagline": "La adresoj, per kiuj via konekto atingas ĉi tiun paĝon.",
+    "answered": "Respondintaj servoj",
+    "updatedAt": "Lasta kontrolo je {time}"
+  },
+  "endpoint": {
+    "auto": { "label": "Aŭtomate", "blurb": "La protokolo, kiun via retumilo elektis por ĉi tiu vizito." },
+    "v4": { "label": "Nur IPv4", "blurb": "Atingebla nur per IPv4." },
+    "v6": { "label": "Nur IPv6", "blurb": "Atingebla nur per IPv6." }
+  },
+  "status": {
+    "pending": "Kontrolante…",
+    "detected": "Trovita",
+    "unavailable": "Neatingebla",
+    "failed": "Peto malsukcesis"
+  },
+  "reason": {
+    "unreachable": "Via konekto ne povas atingi ĉi tiun servon.",
+    "timeout": "Ĉi tiu servo ne respondis ĝustatempe.",
+    "empty": "Ĉi tiu servo resendis neniun adreson.",
+    "http": "Ĉi tiu servo respondis per eraro."
+  },
+  "action": {
+    "copy": "Kopii",
+    "copyDone": "Kopiita",
+    "copyBlocked": "Via retumilo blokis la aliron al la poŝo. Elektu la adreson kaj kopiu ĝin mane.",
+    "refresh": "Kontrolli denove",
+    "language": "Lingvo"
+  },
+  "api": {
+    "title": "API-uzo",
+    "intro": "Ĉiu supra karto respondas al unu plata teksta servo. Voku ĝin rekte el ŝelo:",
+    "records": {
+      "auto": "A + AAAA-rikordoj",
+      "v4": "Nur A-rikordo",
+      "v6": "Nur AAAA-rikordo"
+    },
+    "facts": {
+      "anyPath": "Ajna vojo aŭ demando-kvreno resendas la saman korpon; GET kaj POST ambaŭ funkcias, kaj http:// alidirektas al https://.",
+      "body": "La respondo estas text/plain kaj enhavas nur la adreson, sen fina linifino.",
+      "cors": "La respondoj sendas Access-Control-Allow-Origin: *, do retumila kodo povas voki ilin rekte."
+    }
+  },
+  "hint": {
+    "unreachable": "Neatingebla servo estas atendebla, ne eraro: IPv6-nura reto ne povas atingi la IPv4-servon, kaj IPv4-nura reto ne povas atingi la IPv6-servon."
+  }
+}

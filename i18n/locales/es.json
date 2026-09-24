@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "Mi dirección IP",
+    "tagline": "Las direcciones con las que tu conexión llega a esta página.",
+    "answered": "Servicios que respondieron",
+    "updatedAt": "Última comprobación a las {time}"
+  },
+  "endpoint": {
+    "auto": { "label": "Automática", "blurb": "El protocolo que tu navegador eligió para esta visita." },
+    "v4": { "label": "Solo IPv4", "blurb": "Alcanzable solo por IPv4." },
+    "v6": { "label": "Solo IPv6", "blurb": "Alcanzable solo por IPv6." }
+  },
+  "status": {
+    "pending": "Comprobando…",
+    "detected": "Detectada",
+    "unavailable": "Inalcanzable",
+    "failed": "Error en la solicitud"
+  },
+  "reason": {
+    "unreachable": "Tu conexión no puede alcanzar este servicio.",
+    "timeout": "Este servicio no respondió a tiempo.",
+    "empty": "Este servicio no devolvió ninguna dirección.",
+    "http": "Este servicio respondió con un error."
+  },
+  "action": {
+    "copy": "Copiar",
+    "copyDone": "Copiada",
+    "copyBlocked": "Tu navegador bloqueó el acceso al portapapeles. Selecciona la dirección y cópiala a mano.",
+    "refresh": "Comprobar de nuevo",
+    "language": "Idioma"
+  },
+  "api": {
+    "title": "Uso de la API",
+    "intro": "Cada tarjeta de arriba corresponde a un servicio de texto plano. Llama a esos servicios directamente desde una shell:",
+    "records": {
+      "auto": "Registros A + AAAA",
+      "v4": "Solo registro A",
+      "v6": "Solo registro AAAA"
+    },
+    "facts": {
+      "anyPath": "Cualquier ruta o parámetro devuelve el mismo cuerpo; GET y POST funcionan, y http:// redirige a https://.",
+      "body": "La respuesta es text/plain y solo contiene la dirección, sin salto de línea final.",
+      "cors": "Las respuestas envían Access-Control-Allow-Origin: *, así que el código del navegador puede llamarlas directamente."
+    }
+  },
+  "hint": {
+    "unreachable": "Que un servicio sea inalcanzable es normal, no un error: una red solo IPv6 no puede alcanzar el servicio IPv4, y una red solo IPv4 no puede alcanzar el de IPv6."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "Mon adresse IP",
+    "tagline": "Les adresses avec lesquelles votre connexion atteint cette page.",
+    "answered": "Services qui ont répondu",
+    "updatedAt": "Dernière vérification à {time}"
+  },
+  "endpoint": {
+    "auto": { "label": "Automatique", "blurb": "Le protocole choisi par votre navigateur pour cette visite." },
+    "v4": { "label": "IPv4 uniquement", "blurb": "Atteignable uniquement en IPv4." },
+    "v6": { "label": "IPv6 uniquement", "blurb": "Atteignable uniquement en IPv6." }
+  },
+  "status": {
+    "pending": "Vérification…",
+    "detected": "Détectée",
+    "unavailable": "Injoignable",
+    "failed": "Échec de la requête"
+  },
+  "reason": {
+    "unreachable": "Votre connexion ne peut pas atteindre ce service.",
+    "timeout": "Ce service n'a pas répondu à temps.",
+    "empty": "Ce service n'a renvoyé aucune adresse.",
+    "http": "Ce service a répondu avec une erreur."
+  },
+  "action": {
+    "copy": "Copier",
+    "copyDone": "Copiée",
+    "copyBlocked": "Votre navigateur a bloqué l'accès au presse-papiers. Sélectionnez l'adresse et copiez-la à la main.",
+    "refresh": "Vérifier à nouveau",
+    "language": "Langue"
+  },
+  "api": {
+    "title": "Utilisation de l'API",
+    "intro": "Chaque carte ci-dessus correspond à un service en texte brut. Appelez-le directement depuis un shell :",
+    "records": {
+      "auto": "Enregistrements A + AAAA",
+      "v4": "Enregistrement A uniquement",
+      "v6": "Enregistrement AAAA uniquement"
+    },
+    "facts": {
+      "anyPath": "N'importe quel chemin ou paramètre renvoie le même corps ; GET et POST fonctionnent, et http:// redirige vers https://.",
+      "body": "La réponse est en text/plain et ne contient que l'adresse, sans saut de ligne final.",
+      "cors": "Les réponses envoient Access-Control-Allow-Origin: *, le code du navigateur peut donc les appeler directement."
+    }
+  },
+  "hint": {
+    "unreachable": "Un service injoignable est normal et non une erreur : un réseau IPv6 seul ne peut pas joindre le service IPv4, et un réseau IPv4 seul ne peut pas joindre le service IPv6."
+  }
+}

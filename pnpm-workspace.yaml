@@ -1,0 +1,6 @@
+packages:
+  - '.'
+
+# esbuild resolves a prebuilt platform binary, so its postinstall script is not needed.
+allowBuilds:
+  esbuild: false
